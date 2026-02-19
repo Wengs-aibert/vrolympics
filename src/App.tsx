@@ -27,18 +27,22 @@ function App() {
   }
 
   return (
-    <div className="landing">
-      {/* Hero + Signup */}
+    <div className="page">
+      {/* Hero */}
       <section className="hero">
-        <div className="hero-badge">🏅 Early Access</div>
-        <h1 className="hero-title">
-          Step Into the Arena.<br />
-          <span className="gradient-text">Compete in VR.</span>
+        <p className="hero-label">VROlympics</p>
+        <h1 className="hero-headline">
+          Step Into the Arena.
         </h1>
-        <p className="hero-subtitle">
-          The world's first VR sports competition platform. Train, compete, and climb the global leaderboard — all from your living room.
+        <p className="hero-subheadline">
+          The world's first VR sports competition platform.
+          <br />
+          Train. Compete. Rise.
         </p>
+      </section>
 
+      {/* Signup */}
+      <section className="signup-section">
         <form className="signup-form" onSubmit={handleSignup}>
           <input
             type="email"
@@ -49,84 +53,52 @@ function App() {
             required
           />
           <button type="submit" className="signup-btn">
-            {submitted ? '✓ You\'re In!' : 'Get Early Access'}
+            {submitted ? '✓ You\'re In' : 'Get Early Access'}
           </button>
         </form>
-
         {submitted && (
-          <p className="signup-confirm">Welcome to the arena 🎮</p>
+          <p className="signup-confirm">Welcome to the arena.</p>
         )}
-
-        <div className="hero-stats">
-          <div className="stat">
-            <span className="stat-number">{signupCount}</span>
-            <span className="stat-label">Signed Up</span>
-          </div>
-          <div className="stat-divider" />
-          <div className="stat">
-            <span className="stat-number">2026</span>
-            <span className="stat-label">Launch Year</span>
-          </div>
-          <div className="stat-divider" />
-          <div className="stat">
-            <span className="stat-number">∞</span>
-            <span className="stat-label">Possibilities</span>
-          </div>
-        </div>
+        {signupCount > 0 && !submitted && (
+          <p className="signup-count">{signupCount} {signupCount === 1 ? 'person has' : 'people have'} signed up</p>
+        )}
       </section>
 
-      {/* Features */}
-      <section className="features">
-        <h2 className="section-title">Why VROlympics?</h2>
-        <div className="features-grid">
-          <div className="feature-card">
-            <div className="feature-icon">🎯</div>
-            <h3>Competitive VR Sports</h3>
-            <p>Real-time multiplayer competitions across a growing lineup of VR sports disciplines.</p>
-          </div>
-          <div className="feature-card">
-            <div className="feature-icon">📊</div>
+      {/* Info */}
+      <section className="info-section">
+        <div className="info-block">
+          <h2 className="info-headline">Compete in VR sports with players worldwide.</h2>
+          <p className="info-body">
+            VROlympics brings real-time multiplayer competition to virtual reality. 
+            Whether it's boxing, archery, or table tennis — step into the arena 
+            and prove yourself on the global leaderboard. No travel required. 
+            Just you, your headset, and the will to win.
+          </p>
+        </div>
+
+        <div className="info-grid">
+          <div className="info-card">
             <h3>Global Leaderboards</h3>
-            <p>Track your progress, climb the ranks, and see how you stack up against players worldwide.</p>
+            <p>Track your rank across every sport. See where you stand against the world.</p>
           </div>
-          <div className="feature-card">
-            <div className="feature-icon">🏋️</div>
+          <div className="info-card">
+            <h3>Live Tournaments</h3>
+            <p>Scheduled competitions with real stakes. Enter solo or with a team.</p>
+          </div>
+          <div className="info-card">
             <h3>Train & Improve</h3>
-            <p>Practice modes, skill challenges, and analytics to sharpen your game before competition day.</p>
+            <p>Practice modes and skill analytics to sharpen your game before match day.</p>
           </div>
-          <div className="feature-card">
-            <div className="feature-icon">🤝</div>
-            <h3>Community First</h3>
-            <p>Join teams, form rivalries, and connect with a global community of VR athletes.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works */}
-      <section className="how-it-works">
-        <h2 className="section-title">How It Works</h2>
-        <div className="steps">
-          <div className="step">
-            <div className="step-number">1</div>
-            <h3>Sign Up</h3>
-            <p>Create your athlete profile and pick your sports.</p>
-          </div>
-          <div className="step">
-            <div className="step-number">2</div>
-            <h3>Train</h3>
-            <p>Practice in solo or multiplayer training sessions.</p>
-          </div>
-          <div className="step">
-            <div className="step-number">3</div>
-            <h3>Compete</h3>
-            <p>Enter tournaments and climb the global leaderboard.</p>
+          <div className="info-card">
+            <h3>Community</h3>
+            <p>Join teams, form rivalries, and connect with VR athletes everywhere.</p>
           </div>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="footer">
-        <p className="footer-text">© 2026 VROlympics. Built for the next generation of athletes.</p>
+        <p>© 2026 VROlympics</p>
       </footer>
     </div>
   )
